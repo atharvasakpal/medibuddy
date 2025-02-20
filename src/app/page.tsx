@@ -93,7 +93,7 @@ export default function HomePage() {
           <CardHeader>
             <CardTitle className="flex items-center">
               <Calendar className="mr-2 h-5 w-5" />
-              Today's Schedule
+              Today&apos;s Schedule
             </CardTitle>
           </CardHeader>
           <CardContent>
