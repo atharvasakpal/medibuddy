@@ -3,8 +3,8 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Plus, Clock, Calendar, PackageOpen } from "lucide-react";
+
+import {  Clock, Calendar, PackageOpen } from "lucide-react";
 import { AddMedicineDialog } from '@/components/add-medicine-dialog';
 
 const MedicinePage = () => {
