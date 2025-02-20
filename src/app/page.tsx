@@ -24,7 +24,7 @@ export default function HomePage() {
         <div>
           <h1 className="text-3xl font-bold">Welcome Back, User</h1>
           <p className="text-muted-foreground mt-2">
-            Here's an overview of your medication schedule
+            Here&apos;s an overview of your medication schedule
           </p>
         </div>
         <div className="mt-4 md:mt-0">
@@ -44,7 +44,7 @@ export default function HomePage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Today's Doses</CardTitle>
+            <CardTitle className="text-sm font-medium">Today&apos;s Doses</CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
