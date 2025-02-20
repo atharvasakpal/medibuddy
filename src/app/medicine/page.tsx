@@ -72,7 +72,7 @@ const MedicinePage = () => {
           </CardHeader>
           <CardContent>
             <div className="text-center py-8 text-muted-foreground">
-              No medications scheduled. Click "Add Medicine" to get started.
+              No medications scheduled. Click &quot;Add Medicine&quot; to get started.
             </div>
           </CardContent>
         </Card>
