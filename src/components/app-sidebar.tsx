@@ -30,12 +30,12 @@ const items = [
   },
   {
     title: "History",
-    url: "#",
+    url: "/history",
     icon: Search,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/settings",
     icon: Settings,
   },
 ]
