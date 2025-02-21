@@ -9,10 +9,7 @@ import { Toaster } from "@/components/ui/toaster"
 
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
+  
 } from '@clerk/nextjs'
 import AppSidebarWrapper from "@/components/app-sidebar-wrapper";
 

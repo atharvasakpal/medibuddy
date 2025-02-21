@@ -17,14 +17,12 @@ import {
 import {
   Bell,
   User,
-  Clock,
-  Mail,
-  Smartphone,
-  Moon,
+  
+  
   Globe,
   Shield,
   LogOut,
-  Languages
+
 } from "lucide-react";
 
 export default function SettingsPage() {

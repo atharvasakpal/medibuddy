@@ -9,7 +9,6 @@ import {
   Bell,
   AlertTriangle,
   Clock,
-  Pill,
   CalendarClock,
   PackageOpen,
   XCircle,
@@ -48,7 +47,7 @@ export default function AlertsPage() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Today's Reminders</CardTitle>
+            <CardTitle className="text-sm font-medium">Today&apos;s Reminders</CardTitle>
             <Clock className="h-4 w-4 text-blue-500" />
           </CardHeader>
           <CardContent>
@@ -132,7 +131,7 @@ export default function AlertsPage() {
                   <h4 className="font-medium text-purple-500">Appointment</h4>
                   <Badge variant="outline" className="text-purple-500 border-purple-500">Upcoming</Badge>
                 </div>
-                <p className="text-sm text-muted-foreground">Doctor's appointment for prescription review</p>
+                <p className="text-sm text-muted-foreground">Doctor&apos;s appointment for prescription review</p>
                 <p className="text-xs text-muted-foreground mt-1">Friday, 10:00 AM</p>
               </div>
             </div>
