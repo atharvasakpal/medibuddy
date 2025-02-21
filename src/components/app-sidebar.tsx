@@ -1,5 +1,6 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+"use client";
 
+import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -9,8 +10,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import { UserButton } from "@clerk/nextjs"
+} from "@/components/ui/sidebar";
+import { UserButton } from "@clerk/nextjs";
 
 // Menu items.
 const items = [
@@ -39,16 +40,16 @@ const items = [
     url: "/settings",
     icon: Settings,
   },
-]
+];
 
-export function AppSidebar() {
+export function AppSidebar({ userId }: { userId: string | null }) {
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
           <div className="flex items-center justify-between p-4">
             <SidebarGroupLabel>MediBuddy</SidebarGroupLabel>
-            <UserButton afterSignOutUrl="/"/>
+            {userId && <UserButton afterSignOutUrl="/" />}
           </div>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -67,5 +68,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }

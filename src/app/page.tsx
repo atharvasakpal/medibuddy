@@ -1,7 +1,8 @@
-// app/page.tsx
 "use client";
 
-import React from 'react';
+import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
@@ -16,22 +17,15 @@ import {
 
 import { AddMedicineDialog } from "@/components/add-medicine-dialog";
 
-
-import { useAuth } from '@clerk/nextjs'
-
-
-
-import { redirect } from "next/navigation";
-
-
-
-export default async function HomePage() {
-
+export default function HomePage() {
   const { userId } = useAuth();
-  
-  if (!userId) {
-    redirect("/sign-in");
-  }
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!userId) {
+      router.push("/sign-in");
+    }
+  }, [userId, router]);
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -48,11 +42,7 @@ export default async function HomePage() {
             <Bell className="mr-2 h-4 w-4" />
             Notifications
           </Button>
-          {/* <Button>
-            <Pill className="mr-2 h-4 w-4" />
-            Add Medicine
-          </Button> */}
-          <AddMedicineDialog/>
+          <AddMedicineDialog />
         </div>
       </div>
 
@@ -114,7 +104,7 @@ export default async function HomePage() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {['Morning', 'Afternoon', 'Evening'].map((time) => (
+              {["Morning", "Afternoon", "Evening"].map((time) => (
                 <div key={time} className="flex items-center justify-between p-2 rounded-lg bg-muted/50">
                   <div className="flex items-center">
                     <CheckCircle2 className="h-4 w-4 mr-2 text-green-500" />
@@ -160,20 +150,24 @@ export default async function HomePage() {
         <CardContent>
           <div className="space-y-4">
             {[
-              { time: '2 hours ago', action: 'Took morning medication', status: 'success' },
-              { time: 'Yesterday', action: 'Refilled Medication B', status: 'info' },
-              { time: '2 days ago', action: 'Missed evening dose', status: 'warning' },
+              { time: "2 hours ago", action: "Took morning medication", status: "success" },
+              { time: "Yesterday", action: "Refilled Medication B", status: "info" },
+              { time: "2 days ago", action: "Missed evening dose", status: "warning" },
             ].map((activity, index) => (
               <div key={index} className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">{activity.action}</p>
                   <p className="text-sm text-muted-foreground">{activity.time}</p>
                 </div>
-                <div className={`px-2 py-1 rounded text-xs ${
-                  activity.status === 'success' ? 'bg-green-500/10 text-green-500' :
-                  activity.status === 'warning' ? 'bg-yellow-500/10 text-yellow-500' :
-                  'bg-blue-500/10 text-blue-500'
-                }`}>
+                <div
+                  className={`px-2 py-1 rounded text-xs ${
+                    activity.status === "success"
+                      ? "bg-green-500/10 text-green-500"
+                      : activity.status === "warning"
+                      ? "bg-yellow-500/10 text-yellow-500"
+                      : "bg-blue-500/10 text-blue-500"
+                  }`}
+                >
                   {activity.status.charAt(0).toUpperCase() + activity.status.slice(1)}
                 </div>
               </div>

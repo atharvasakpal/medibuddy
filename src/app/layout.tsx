@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
+// import { AppSidebar } from "@/components/app-sidebar";
 
 import { Toaster } from "@/components/ui/toaster"
 
@@ -14,6 +14,7 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
+import AppSidebarWrapper from "@/components/app-sidebar-wrapper";
 
 
 
@@ -45,7 +46,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <SidebarProvider defaultOpen={true}>
-        <AppSidebar />
+        <AppSidebarWrapper />
         
           <SidebarTrigger />
           <Toaster />
