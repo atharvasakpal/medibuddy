@@ -7,6 +7,15 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { Toaster } from "@/components/ui/toaster"
 
 
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     
-      
+      <ClerkProvider>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -45,6 +54,7 @@ export default function RootLayout({
         </SidebarProvider>
       </body>
     </html>
+    </ClerkProvider>
     
   );
 }

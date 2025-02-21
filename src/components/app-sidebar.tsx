@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { UserButton } from "@clerk/nextjs"
 
 // Menu items.
 const items = [
@@ -45,7 +46,10 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>MediBuddy</SidebarGroupLabel>
+          <div className="flex items-center justify-between p-4">
+            <SidebarGroupLabel>MediBuddy</SidebarGroupLabel>
+            <UserButton afterSignOutUrl="/"/>
+          </div>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

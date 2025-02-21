@@ -16,7 +16,23 @@ import {
 
 import { AddMedicineDialog } from "@/components/add-medicine-dialog";
 
-export default function HomePage() {
+
+import { useAuth } from '@clerk/nextjs'
+
+
+
+import { redirect } from "next/navigation";
+
+
+
+export default async function HomePage() {
+
+  const { userId } = useAuth();
+  
+  if (!userId) {
+    redirect("/sign-in");
+  }
+
   return (
     <div className="p-6 max-w-7xl mx-auto">
       {/* Header Section */}
