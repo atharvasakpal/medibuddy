@@ -1,4 +1,3 @@
-// src/lib/api-client.ts
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 // Create a type for API error responses
@@ -51,19 +50,19 @@ apiClient.interceptors.response.use(
   }
 );
 
-// Helper methods
+// Helper methods with proper typing
 export const api = {
-  get: <T>(url: string, config?: AxiosRequestConfig) => 
-    apiClient.get<T, AxiosResponse<T>>(url, config),
+  get: <T, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig) => 
+    apiClient.get<T, R>(url, config),
     
-  post: <T>(url: string, data?: any, config?: AxiosRequestConfig) => 
-    apiClient.post<T, AxiosResponse<T>>(url, data, config),
+  post: <T, D = Record<string, unknown>, R = AxiosResponse<T>>(url: string, data?: D, config?: AxiosRequestConfig) => 
+    apiClient.post<T, R>(url, data, config),
     
-  put: <T>(url: string, data?: any, config?: AxiosRequestConfig) => 
-    apiClient.put<T, AxiosResponse<T>>(url, data, config),
+  put: <T, D = Record<string, unknown>, R = AxiosResponse<T>>(url: string, data?: D, config?: AxiosRequestConfig) => 
+    apiClient.put<T, R>(url, data, config),
     
-  delete: <T>(url: string, config?: AxiosRequestConfig) => 
-    apiClient.delete<T, AxiosResponse<T>>(url, config),
+  delete: <T, R = AxiosResponse<T>>(url: string, config?: AxiosRequestConfig) => 
+    apiClient.delete<T, R>(url, config),
 };
 
 export default apiClient;
